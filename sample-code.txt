@@ -1,0 +1,12 @@
+class HelloWorld {
+    fraction $real!
+    fraction $imaginary!
+
+    method none build(){
+    }
+}
+
+chunk $a := 1!
+chunk $b := 2!
+HelloWorld $s := HelloWorld.build($a, $b, 1, 2)!
+show $s.abcd()!
