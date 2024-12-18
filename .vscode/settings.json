@@ -1,9 +1,0 @@
-{
-    "editor.fontFamily": "'Sarasa Term CL', Consolas, 'Courier New', monospace, 'I.Ming', TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16",
-    "editor.fontSize": 15,
-    "editor.fontWeight": "normal",
-    "editor.formatOnSave": false,
-    "terminal.integrated.fontFamily": "\"Sarasa Term CL Nerd Font\", monospace",
-    "terminal.integrated.fontSize": 15,
-    "workbench.colorTheme": "Default Dark+"
-}
