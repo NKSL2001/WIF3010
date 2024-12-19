@@ -1,4 +1,4 @@
-# Generated from ./TypeChecker.g4 by ANTLR 4.13.2
+# Generated from TypeChecker.g4 by ANTLR 4.13.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -254,6 +254,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitProgram" ):
                 listener.exitProgram(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProgram" ):
+                return visitor.visitProgram(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -320,6 +326,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStatement" ):
                 listener.exitStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStatement" ):
+                return visitor.visitStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -391,6 +403,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitShowStatement" ):
                 listener.exitShowStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitShowStatement" ):
+                return visitor.visitShowStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -436,6 +454,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitReturnStatement" ):
                 listener.exitReturnStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitReturnStatement" ):
+                return visitor.visitReturnStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -487,6 +511,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitCreateClassStatement" ):
                 listener.exitCreateClassStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreateClassStatement" ):
+                return visitor.visitCreateClassStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -536,6 +566,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVariableSignature" ):
                 listener.exitVariableSignature(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVariableSignature" ):
+                return visitor.visitVariableSignature(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -588,6 +624,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVariableDeclaration" ):
                 listener.exitVariableDeclaration(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVariableDeclaration" ):
+                return visitor.visitVariableDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -656,6 +698,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitAssignment" ):
                 listener.exitAssignment(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignment" ):
+                return visitor.visitAssignment(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -726,6 +774,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitParametersInit" ):
                 listener.exitParametersInit(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParametersInit" ):
+                return visitor.visitParametersInit(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -808,6 +862,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitMethodSignature" ):
                 listener.exitMethodSignature(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodSignature" ):
+                return visitor.visitMethodSignature(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -860,6 +920,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitMethodDeclaration" ):
                 listener.exitMethodDeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodDeclaration" ):
+                return visitor.visitMethodDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -910,6 +976,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethodBlock" ):
                 listener.exitMethodBlock(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodBlock" ):
+                return visitor.visitMethodBlock(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1001,6 +1073,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitClassDeclaration" ):
                 listener.exitClassDeclaration(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassDeclaration" ):
+                return visitor.visitClassDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1112,6 +1190,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitTemplateDeclaration" ):
                 listener.exitTemplateDeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTemplateDeclaration" ):
+                return visitor.visitTemplateDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1187,6 +1271,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitParametersCall" ):
                 listener.exitParametersCall(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParametersCall" ):
+                return visitor.visitParametersCall(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1264,6 +1354,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitClassVariableAccess" ):
                 listener.exitClassVariableAccess(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassVariableAccess" ):
+                return visitor.visitClassVariableAccess(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1334,6 +1430,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitClassMethodAccess" ):
                 listener.exitClassMethodAccess(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassMethodAccess" ):
+                return visitor.visitClassMethodAccess(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1394,6 +1496,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitExpression" ):
                 listener.exitExpression(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpression" ):
+                return visitor.visitExpression(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1438,6 +1546,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitAdditiveExpression" ):
                 listener.exitAdditiveExpression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAdditiveExpression" ):
+                return visitor.visitAdditiveExpression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1501,6 +1615,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMultiplicativeExpression" ):
                 listener.exitMultiplicativeExpression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultiplicativeExpression" ):
+                return visitor.visitMultiplicativeExpression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1577,6 +1697,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitTerm" ):
                 listener.exitTerm(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTerm" ):
+                return visitor.visitTerm(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1655,6 +1781,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitType" ):
                 listener.exitType(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitType" ):
+                return visitor.visitType(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1725,6 +1857,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitVariableName" ):
                 listener.exitVariableName(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVariableName" ):
+                return visitor.visitVariableName(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1769,6 +1907,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitClassName" ):
                 listener.exitClassName(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassName" ):
+                return visitor.visitClassName(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1810,6 +1954,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethodName" ):
                 listener.exitMethodName(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodName" ):
+                return visitor.visitMethodName(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1860,6 +2010,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIdentifier" ):
                 listener.exitIdentifier(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifier" ):
+                return visitor.visitIdentifier(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1928,6 +2084,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitLiteral" ):
                 listener.exitLiteral(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLiteral" ):
+                return visitor.visitLiteral(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1994,6 +2156,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitChunkLiteral" ):
                 listener.exitChunkLiteral(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitChunkLiteral" ):
+                return visitor.visitChunkLiteral(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2053,6 +2221,12 @@ class TypeCheckerParser ( Parser ):
             if hasattr( listener, "exitFractionLiteral" ):
                 listener.exitFractionLiteral(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFractionLiteral" ):
+                return visitor.visitFractionLiteral(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2109,6 +2283,12 @@ class TypeCheckerParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStringLiteral" ):
                 listener.exitStringLiteral(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStringLiteral" ):
+                return visitor.visitStringLiteral(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
