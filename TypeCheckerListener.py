@@ -233,23 +233,5 @@ class TypeCheckerListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by TypeCheckerParser#identifier.
-    def enterIdentifier(self, ctx:TypeCheckerParser.IdentifierContext):
-        pass
-
-    # Exit a parse tree produced by TypeCheckerParser#identifier.
-    def exitIdentifier(self, ctx:TypeCheckerParser.IdentifierContext):
-        pass
-
-
-    # Enter a parse tree produced by TypeCheckerParser#literal.
-    def enterLiteral(self, ctx:TypeCheckerParser.LiteralContext):
-        pass
-
-    # Exit a parse tree produced by TypeCheckerParser#literal.
-    def exitLiteral(self, ctx:TypeCheckerParser.LiteralContext):
-        pass
-
-
 
 del TypeCheckerParser
