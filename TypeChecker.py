@@ -255,11 +255,11 @@ class TypeChecker(ExprVisitor):
     
     def visitLiteral(self, ctx:ExprParser.LiteralContext):
         # Check if it's a chunkLiteral, fractionLiteral, or stringLiteral
-        if ctx.chunkLiteral():
+        if ctx.ChunkLiteral():
             return 'chunk'  # Return the type for chunk literal
-        elif ctx.fractionLiteral():
+        elif ctx.FractionLiteral():
             return 'fraction'  # Return the type for fraction literal
-        elif ctx.stringLiteral():
+        elif ctx.StringLiteral():
             return 'string'  # Return the type for string literal
         else:
             raise Exception(f"Unsupported literal: {ctx.getText()}")

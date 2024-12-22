@@ -10,111 +10,98 @@ else:
 
 def serializedATN():
     return [
-        4,1,34,301,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,36,268,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
-        2,27,7,27,2,28,7,28,2,29,7,29,1,0,5,0,62,8,0,10,0,12,0,65,9,0,1,
-        1,1,1,1,1,1,1,1,1,3,1,72,8,1,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,4,
-        1,4,1,4,1,4,1,5,1,5,1,5,1,6,1,6,1,6,1,6,3,6,93,8,6,1,6,1,6,1,7,1,
-        7,1,7,1,7,3,7,101,8,7,1,7,1,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,5,8,112,
-        8,8,10,8,12,8,115,9,8,1,8,3,8,118,8,8,1,8,1,8,1,9,1,9,1,9,1,9,1,
-        9,1,10,1,10,1,10,1,11,1,11,5,11,132,8,11,10,11,12,11,135,9,11,1,
-        11,1,11,3,11,139,8,11,1,11,1,11,1,12,1,12,1,12,1,12,1,12,3,12,148,
-        8,12,1,12,1,12,1,12,1,12,5,12,154,8,12,10,12,12,12,157,9,12,1,12,
-        5,12,160,8,12,10,12,12,12,163,9,12,1,12,5,12,166,8,12,10,12,12,12,
-        169,9,12,1,12,1,12,1,13,1,13,1,13,1,13,1,13,1,13,5,13,179,8,13,10,
-        13,12,13,182,9,13,1,13,1,13,1,13,5,13,187,8,13,10,13,12,13,190,9,
-        13,1,13,1,13,1,14,1,14,1,14,1,14,5,14,198,8,14,10,14,12,14,201,9,
-        14,1,14,3,14,204,8,14,1,14,1,14,1,15,1,15,3,15,210,8,15,1,15,1,15,
-        1,15,1,16,1,16,3,16,217,8,16,1,16,1,16,1,16,1,16,1,17,1,17,1,18,
-        1,18,1,18,5,18,228,8,18,10,18,12,18,231,9,18,1,19,1,19,1,19,5,19,
-        236,8,19,10,19,12,19,239,9,19,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
-        1,20,3,20,249,8,20,1,21,1,21,1,21,1,21,1,21,3,21,256,8,21,1,22,1,
-        22,1,22,1,23,1,23,1,24,1,24,1,25,1,25,5,25,267,8,25,10,25,12,25,
-        270,9,25,1,26,1,26,1,26,3,26,275,8,26,1,27,1,27,5,27,279,8,27,10,
-        27,12,27,282,9,27,1,28,1,28,1,28,5,28,287,8,28,10,28,12,28,290,9,
-        28,1,29,1,29,5,29,294,8,29,10,29,12,29,297,9,29,1,29,1,29,1,29,0,
-        0,30,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,
-        44,46,48,50,52,54,56,58,0,3,1,0,16,17,1,0,18,19,3,0,25,25,28,28,
-        30,30,307,0,63,1,0,0,0,2,71,1,0,0,0,4,73,1,0,0,0,6,77,1,0,0,0,8,
-        81,1,0,0,0,10,85,1,0,0,0,12,88,1,0,0,0,14,96,1,0,0,0,16,104,1,0,
-        0,0,18,121,1,0,0,0,20,126,1,0,0,0,22,129,1,0,0,0,24,142,1,0,0,0,
-        26,172,1,0,0,0,28,193,1,0,0,0,30,209,1,0,0,0,32,216,1,0,0,0,34,222,
-        1,0,0,0,36,224,1,0,0,0,38,232,1,0,0,0,40,248,1,0,0,0,42,255,1,0,
-        0,0,44,257,1,0,0,0,46,260,1,0,0,0,48,262,1,0,0,0,50,264,1,0,0,0,
-        52,274,1,0,0,0,54,276,1,0,0,0,56,283,1,0,0,0,58,291,1,0,0,0,60,62,
-        3,2,1,0,61,60,1,0,0,0,62,65,1,0,0,0,63,61,1,0,0,0,63,64,1,0,0,0,
-        64,1,1,0,0,0,65,63,1,0,0,0,66,72,3,12,6,0,67,72,3,14,7,0,68,72,3,
-        4,2,0,69,72,3,24,12,0,70,72,3,26,13,0,71,66,1,0,0,0,71,67,1,0,0,
-        0,71,68,1,0,0,0,71,69,1,0,0,0,71,70,1,0,0,0,72,3,1,0,0,0,73,74,5,
-        1,0,0,74,75,3,34,17,0,75,76,5,2,0,0,76,5,1,0,0,0,77,78,5,3,0,0,78,
-        79,3,34,17,0,79,80,5,2,0,0,80,7,1,0,0,0,81,82,5,4,0,0,82,83,3,46,
-        23,0,83,84,3,16,8,0,84,9,1,0,0,0,85,86,3,42,21,0,86,87,3,44,22,0,
-        87,11,1,0,0,0,88,89,3,10,5,0,89,92,5,5,0,0,90,93,3,34,17,0,91,93,
-        3,8,4,0,92,90,1,0,0,0,92,91,1,0,0,0,93,94,1,0,0,0,94,95,5,2,0,0,
-        95,13,1,0,0,0,96,97,3,44,22,0,97,100,5,5,0,0,98,101,3,34,17,0,99,
-        101,3,8,4,0,100,98,1,0,0,0,100,99,1,0,0,0,101,102,1,0,0,0,102,103,
-        5,2,0,0,103,15,1,0,0,0,104,117,5,6,0,0,105,106,3,42,21,0,106,113,
-        3,44,22,0,107,108,5,7,0,0,108,109,3,42,21,0,109,110,3,44,22,0,110,
-        112,1,0,0,0,111,107,1,0,0,0,112,115,1,0,0,0,113,111,1,0,0,0,113,
-        114,1,0,0,0,114,118,1,0,0,0,115,113,1,0,0,0,116,118,1,0,0,0,117,
-        105,1,0,0,0,117,116,1,0,0,0,118,119,1,0,0,0,119,120,5,8,0,0,120,
-        17,1,0,0,0,121,122,5,9,0,0,122,123,3,42,21,0,123,124,3,48,24,0,124,
-        125,3,16,8,0,125,19,1,0,0,0,126,127,3,18,9,0,127,128,3,22,11,0,128,
-        21,1,0,0,0,129,133,5,10,0,0,130,132,3,2,1,0,131,130,1,0,0,0,132,
-        135,1,0,0,0,133,131,1,0,0,0,133,134,1,0,0,0,134,138,1,0,0,0,135,
-        133,1,0,0,0,136,139,3,6,3,0,137,139,1,0,0,0,138,136,1,0,0,0,138,
-        137,1,0,0,0,139,140,1,0,0,0,140,141,5,11,0,0,141,23,1,0,0,0,142,
-        143,5,12,0,0,143,147,3,46,23,0,144,145,5,13,0,0,145,148,3,46,23,
-        0,146,148,1,0,0,0,147,144,1,0,0,0,147,146,1,0,0,0,148,149,1,0,0,
-        0,149,155,5,10,0,0,150,151,3,10,5,0,151,152,5,2,0,0,152,154,1,0,
-        0,0,153,150,1,0,0,0,154,157,1,0,0,0,155,153,1,0,0,0,155,156,1,0,
-        0,0,156,161,1,0,0,0,157,155,1,0,0,0,158,160,3,12,6,0,159,158,1,0,
-        0,0,160,163,1,0,0,0,161,159,1,0,0,0,161,162,1,0,0,0,162,167,1,0,
-        0,0,163,161,1,0,0,0,164,166,3,20,10,0,165,164,1,0,0,0,166,169,1,
-        0,0,0,167,165,1,0,0,0,167,168,1,0,0,0,168,170,1,0,0,0,169,167,1,
-        0,0,0,170,171,5,11,0,0,171,25,1,0,0,0,172,173,5,14,0,0,173,174,3,
-        46,23,0,174,180,5,10,0,0,175,176,3,10,5,0,176,177,5,2,0,0,177,179,
-        1,0,0,0,178,175,1,0,0,0,179,182,1,0,0,0,180,178,1,0,0,0,180,181,
-        1,0,0,0,181,188,1,0,0,0,182,180,1,0,0,0,183,184,3,18,9,0,184,185,
-        5,2,0,0,185,187,1,0,0,0,186,183,1,0,0,0,187,190,1,0,0,0,188,186,
-        1,0,0,0,188,189,1,0,0,0,189,191,1,0,0,0,190,188,1,0,0,0,191,192,
-        5,11,0,0,192,27,1,0,0,0,193,203,5,6,0,0,194,199,3,34,17,0,195,196,
-        5,7,0,0,196,198,3,34,17,0,197,195,1,0,0,0,198,201,1,0,0,0,199,197,
-        1,0,0,0,199,200,1,0,0,0,200,204,1,0,0,0,201,199,1,0,0,0,202,204,
-        1,0,0,0,203,194,1,0,0,0,203,202,1,0,0,0,204,205,1,0,0,0,205,206,
-        5,8,0,0,206,29,1,0,0,0,207,210,3,46,23,0,208,210,3,44,22,0,209,207,
-        1,0,0,0,209,208,1,0,0,0,210,211,1,0,0,0,211,212,5,15,0,0,212,213,
-        3,44,22,0,213,31,1,0,0,0,214,217,3,46,23,0,215,217,3,44,22,0,216,
-        214,1,0,0,0,216,215,1,0,0,0,217,218,1,0,0,0,218,219,5,15,0,0,219,
-        220,3,48,24,0,220,221,3,28,14,0,221,33,1,0,0,0,222,223,3,36,18,0,
-        223,35,1,0,0,0,224,229,3,38,19,0,225,226,7,0,0,0,226,228,3,38,19,
-        0,227,225,1,0,0,0,228,231,1,0,0,0,229,227,1,0,0,0,229,230,1,0,0,
-        0,230,37,1,0,0,0,231,229,1,0,0,0,232,237,3,40,20,0,233,234,7,1,0,
-        0,234,236,3,40,20,0,235,233,1,0,0,0,236,239,1,0,0,0,237,235,1,0,
-        0,0,237,238,1,0,0,0,238,39,1,0,0,0,239,237,1,0,0,0,240,249,3,44,
-        22,0,241,249,3,52,26,0,242,249,3,30,15,0,243,249,3,32,16,0,244,245,
-        5,6,0,0,245,246,3,34,17,0,246,247,5,8,0,0,247,249,1,0,0,0,248,240,
-        1,0,0,0,248,241,1,0,0,0,248,242,1,0,0,0,248,243,1,0,0,0,248,244,
-        1,0,0,0,249,41,1,0,0,0,250,256,5,20,0,0,251,256,5,21,0,0,252,256,
-        5,22,0,0,253,256,5,23,0,0,254,256,3,46,23,0,255,250,1,0,0,0,255,
-        251,1,0,0,0,255,252,1,0,0,0,255,253,1,0,0,0,255,254,1,0,0,0,256,
-        43,1,0,0,0,257,258,5,24,0,0,258,259,3,50,25,0,259,45,1,0,0,0,260,
-        261,3,50,25,0,261,47,1,0,0,0,262,263,3,50,25,0,263,49,1,0,0,0,264,
-        268,5,28,0,0,265,267,7,2,0,0,266,265,1,0,0,0,267,270,1,0,0,0,268,
-        266,1,0,0,0,268,269,1,0,0,0,269,51,1,0,0,0,270,268,1,0,0,0,271,275,
-        3,54,27,0,272,275,3,56,28,0,273,275,3,58,29,0,274,271,1,0,0,0,274,
-        272,1,0,0,0,274,273,1,0,0,0,275,53,1,0,0,0,276,280,5,29,0,0,277,
-        279,5,30,0,0,278,277,1,0,0,0,279,282,1,0,0,0,280,278,1,0,0,0,280,
-        281,1,0,0,0,281,55,1,0,0,0,282,280,1,0,0,0,283,284,3,54,27,0,284,
-        288,5,15,0,0,285,287,5,30,0,0,286,285,1,0,0,0,287,290,1,0,0,0,288,
-        286,1,0,0,0,288,289,1,0,0,0,289,57,1,0,0,0,290,288,1,0,0,0,291,295,
-        5,26,0,0,292,294,5,31,0,0,293,292,1,0,0,0,294,297,1,0,0,0,295,293,
-        1,0,0,0,295,296,1,0,0,0,296,298,1,0,0,0,297,295,1,0,0,0,298,299,
-        5,26,0,0,299,59,1,0,0,0,27,63,71,92,100,113,117,133,138,147,155,
-        161,167,180,188,199,203,209,216,229,237,248,255,268,274,280,288,
-        295
+        1,0,5,0,56,8,0,10,0,12,0,59,9,0,1,1,1,1,1,1,1,1,1,1,3,1,66,8,1,1,
+        2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,6,1,
+        6,1,6,1,6,3,6,87,8,6,1,6,1,6,1,7,1,7,1,7,1,7,3,7,95,8,7,1,7,1,7,
+        1,8,1,8,1,8,1,8,1,8,1,8,1,8,5,8,106,8,8,10,8,12,8,109,9,8,1,8,3,
+        8,112,8,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,5,
+        11,126,8,11,10,11,12,11,129,9,11,1,11,1,11,3,11,133,8,11,1,11,1,
+        11,1,12,1,12,1,12,1,12,1,12,3,12,142,8,12,1,12,1,12,1,12,1,12,5,
+        12,148,8,12,10,12,12,12,151,9,12,1,12,5,12,154,8,12,10,12,12,12,
+        157,9,12,1,12,5,12,160,8,12,10,12,12,12,163,9,12,1,12,1,12,1,13,
+        1,13,1,13,1,13,1,13,1,13,5,13,173,8,13,10,13,12,13,176,9,13,1,13,
+        1,13,1,13,5,13,181,8,13,10,13,12,13,184,9,13,1,13,1,13,1,14,1,14,
+        1,14,1,14,5,14,192,8,14,10,14,12,14,195,9,14,1,14,3,14,198,8,14,
+        1,14,1,14,1,15,1,15,3,15,204,8,15,1,15,1,15,1,15,1,16,1,16,3,16,
+        211,8,16,1,16,1,16,1,16,1,16,1,17,1,17,1,18,1,18,1,18,5,18,222,8,
+        18,10,18,12,18,225,9,18,1,19,1,19,1,19,5,19,230,8,19,10,19,12,19,
+        233,9,19,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,3,20,243,8,20,1,
+        21,1,21,1,21,1,21,1,21,3,21,250,8,21,1,22,1,22,1,22,1,23,1,23,1,
+        24,1,24,1,25,1,25,5,25,261,8,25,10,25,12,25,264,9,25,1,26,1,26,1,
+        26,0,0,27,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,
+        40,42,44,46,48,50,52,0,4,1,0,16,17,1,0,18,19,3,0,25,25,30,30,32,
+        32,1,0,27,29,272,0,57,1,0,0,0,2,65,1,0,0,0,4,67,1,0,0,0,6,71,1,0,
+        0,0,8,75,1,0,0,0,10,79,1,0,0,0,12,82,1,0,0,0,14,90,1,0,0,0,16,98,
+        1,0,0,0,18,115,1,0,0,0,20,120,1,0,0,0,22,123,1,0,0,0,24,136,1,0,
+        0,0,26,166,1,0,0,0,28,187,1,0,0,0,30,203,1,0,0,0,32,210,1,0,0,0,
+        34,216,1,0,0,0,36,218,1,0,0,0,38,226,1,0,0,0,40,242,1,0,0,0,42,249,
+        1,0,0,0,44,251,1,0,0,0,46,254,1,0,0,0,48,256,1,0,0,0,50,258,1,0,
+        0,0,52,265,1,0,0,0,54,56,3,2,1,0,55,54,1,0,0,0,56,59,1,0,0,0,57,
+        55,1,0,0,0,57,58,1,0,0,0,58,1,1,0,0,0,59,57,1,0,0,0,60,66,3,12,6,
+        0,61,66,3,14,7,0,62,66,3,4,2,0,63,66,3,24,12,0,64,66,3,26,13,0,65,
+        60,1,0,0,0,65,61,1,0,0,0,65,62,1,0,0,0,65,63,1,0,0,0,65,64,1,0,0,
+        0,66,3,1,0,0,0,67,68,5,1,0,0,68,69,3,34,17,0,69,70,5,2,0,0,70,5,
+        1,0,0,0,71,72,5,3,0,0,72,73,3,34,17,0,73,74,5,2,0,0,74,7,1,0,0,0,
+        75,76,5,4,0,0,76,77,3,46,23,0,77,78,3,16,8,0,78,9,1,0,0,0,79,80,
+        3,42,21,0,80,81,3,44,22,0,81,11,1,0,0,0,82,83,3,10,5,0,83,86,5,5,
+        0,0,84,87,3,34,17,0,85,87,3,8,4,0,86,84,1,0,0,0,86,85,1,0,0,0,87,
+        88,1,0,0,0,88,89,5,2,0,0,89,13,1,0,0,0,90,91,3,44,22,0,91,94,5,5,
+        0,0,92,95,3,34,17,0,93,95,3,8,4,0,94,92,1,0,0,0,94,93,1,0,0,0,95,
+        96,1,0,0,0,96,97,5,2,0,0,97,15,1,0,0,0,98,111,5,6,0,0,99,100,3,42,
+        21,0,100,107,3,44,22,0,101,102,5,7,0,0,102,103,3,42,21,0,103,104,
+        3,44,22,0,104,106,1,0,0,0,105,101,1,0,0,0,106,109,1,0,0,0,107,105,
+        1,0,0,0,107,108,1,0,0,0,108,112,1,0,0,0,109,107,1,0,0,0,110,112,
+        1,0,0,0,111,99,1,0,0,0,111,110,1,0,0,0,112,113,1,0,0,0,113,114,5,
+        8,0,0,114,17,1,0,0,0,115,116,5,9,0,0,116,117,3,42,21,0,117,118,3,
+        48,24,0,118,119,3,16,8,0,119,19,1,0,0,0,120,121,3,18,9,0,121,122,
+        3,22,11,0,122,21,1,0,0,0,123,127,5,10,0,0,124,126,3,2,1,0,125,124,
+        1,0,0,0,126,129,1,0,0,0,127,125,1,0,0,0,127,128,1,0,0,0,128,132,
+        1,0,0,0,129,127,1,0,0,0,130,133,3,6,3,0,131,133,1,0,0,0,132,130,
+        1,0,0,0,132,131,1,0,0,0,133,134,1,0,0,0,134,135,5,11,0,0,135,23,
+        1,0,0,0,136,137,5,12,0,0,137,141,3,46,23,0,138,139,5,13,0,0,139,
+        142,3,46,23,0,140,142,1,0,0,0,141,138,1,0,0,0,141,140,1,0,0,0,142,
+        143,1,0,0,0,143,149,5,10,0,0,144,145,3,10,5,0,145,146,5,2,0,0,146,
+        148,1,0,0,0,147,144,1,0,0,0,148,151,1,0,0,0,149,147,1,0,0,0,149,
+        150,1,0,0,0,150,155,1,0,0,0,151,149,1,0,0,0,152,154,3,12,6,0,153,
+        152,1,0,0,0,154,157,1,0,0,0,155,153,1,0,0,0,155,156,1,0,0,0,156,
+        161,1,0,0,0,157,155,1,0,0,0,158,160,3,20,10,0,159,158,1,0,0,0,160,
+        163,1,0,0,0,161,159,1,0,0,0,161,162,1,0,0,0,162,164,1,0,0,0,163,
+        161,1,0,0,0,164,165,5,11,0,0,165,25,1,0,0,0,166,167,5,14,0,0,167,
+        168,3,46,23,0,168,174,5,10,0,0,169,170,3,10,5,0,170,171,5,2,0,0,
+        171,173,1,0,0,0,172,169,1,0,0,0,173,176,1,0,0,0,174,172,1,0,0,0,
+        174,175,1,0,0,0,175,182,1,0,0,0,176,174,1,0,0,0,177,178,3,18,9,0,
+        178,179,5,2,0,0,179,181,1,0,0,0,180,177,1,0,0,0,181,184,1,0,0,0,
+        182,180,1,0,0,0,182,183,1,0,0,0,183,185,1,0,0,0,184,182,1,0,0,0,
+        185,186,5,11,0,0,186,27,1,0,0,0,187,197,5,6,0,0,188,193,3,34,17,
+        0,189,190,5,7,0,0,190,192,3,34,17,0,191,189,1,0,0,0,192,195,1,0,
+        0,0,193,191,1,0,0,0,193,194,1,0,0,0,194,198,1,0,0,0,195,193,1,0,
+        0,0,196,198,1,0,0,0,197,188,1,0,0,0,197,196,1,0,0,0,198,199,1,0,
+        0,0,199,200,5,8,0,0,200,29,1,0,0,0,201,204,3,46,23,0,202,204,3,44,
+        22,0,203,201,1,0,0,0,203,202,1,0,0,0,204,205,1,0,0,0,205,206,5,15,
+        0,0,206,207,3,44,22,0,207,31,1,0,0,0,208,211,3,46,23,0,209,211,3,
+        44,22,0,210,208,1,0,0,0,210,209,1,0,0,0,211,212,1,0,0,0,212,213,
+        5,15,0,0,213,214,3,48,24,0,214,215,3,28,14,0,215,33,1,0,0,0,216,
+        217,3,36,18,0,217,35,1,0,0,0,218,223,3,38,19,0,219,220,7,0,0,0,220,
+        222,3,38,19,0,221,219,1,0,0,0,222,225,1,0,0,0,223,221,1,0,0,0,223,
+        224,1,0,0,0,224,37,1,0,0,0,225,223,1,0,0,0,226,231,3,40,20,0,227,
+        228,7,1,0,0,228,230,3,40,20,0,229,227,1,0,0,0,230,233,1,0,0,0,231,
+        229,1,0,0,0,231,232,1,0,0,0,232,39,1,0,0,0,233,231,1,0,0,0,234,243,
+        3,44,22,0,235,243,3,52,26,0,236,243,3,30,15,0,237,243,3,32,16,0,
+        238,239,5,6,0,0,239,240,3,34,17,0,240,241,5,8,0,0,241,243,1,0,0,
+        0,242,234,1,0,0,0,242,235,1,0,0,0,242,236,1,0,0,0,242,237,1,0,0,
+        0,242,238,1,0,0,0,243,41,1,0,0,0,244,250,5,20,0,0,245,250,5,21,0,
+        0,246,250,5,22,0,0,247,250,5,23,0,0,248,250,3,46,23,0,249,244,1,
+        0,0,0,249,245,1,0,0,0,249,246,1,0,0,0,249,247,1,0,0,0,249,248,1,
+        0,0,0,250,43,1,0,0,0,251,252,5,24,0,0,252,253,3,50,25,0,253,45,1,
+        0,0,0,254,255,3,50,25,0,255,47,1,0,0,0,256,257,3,50,25,0,257,49,
+        1,0,0,0,258,262,5,30,0,0,259,261,7,2,0,0,260,259,1,0,0,0,261,264,
+        1,0,0,0,262,260,1,0,0,0,262,263,1,0,0,0,263,51,1,0,0,0,264,262,1,
+        0,0,0,265,266,7,3,0,0,266,53,1,0,0,0,23,57,65,86,94,107,111,127,
+        132,141,149,155,161,174,182,193,197,203,210,223,231,242,249,262
     ]
 
 class TypeCheckerParser ( Parser ):
@@ -131,7 +118,7 @@ class TypeCheckerParser ( Parser ):
                      "':='", "'('", "','", "')'", "'method'", "'{'", "'}'", 
                      "'class'", "'inherit'", "'template'", "'.'", "'+'", 
                      "'-'", "'*'", "'/'", "'chunk'", "'fraction'", "'string'", 
-                     "'none'", "'$'", "'_'", "'\"'" ]
+                     "'none'", "'$'", "'_'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -139,9 +126,10 @@ class TypeCheckerParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "Whitespace", 
-                      "Letter", "NonZeroDigit", "Digit", "CharacterExceptQuote", 
-                      "Character", "BlockComment", "LineComment" ]
+                      "<INVALID>", "<INVALID>", "Whitespace", "ChunkLiteral", 
+                      "FractionLiteral", "StringLiteral", "Letter", "NonZeroDigit", 
+                      "Digit", "CharacterExceptQuote", "Character", "BlockComment", 
+                      "LineComment" ]
 
     RULE_program = 0
     RULE_statement = 1
@@ -170,9 +158,6 @@ class TypeCheckerParser ( Parser ):
     RULE_methodName = 24
     RULE_identifier = 25
     RULE_literal = 26
-    RULE_chunkLiteral = 27
-    RULE_fractionLiteral = 28
-    RULE_stringLiteral = 29
 
     ruleNames =  [ "program", "statement", "showStatement", "returnStatement", 
                    "createClassStatement", "variableSignature", "variableDeclaration", 
@@ -181,8 +166,7 @@ class TypeCheckerParser ( Parser ):
                    "parametersCall", "classVariableAccess", "classMethodAccess", 
                    "expression", "additiveExpression", "multiplicativeExpression", 
                    "term", "type", "variableName", "className", "methodName", 
-                   "identifier", "literal", "chunkLiteral", "fractionLiteral", 
-                   "stringLiteral" ]
+                   "identifier", "literal" ]
 
     EOF = Token.EOF
     T__0=1
@@ -210,15 +194,17 @@ class TypeCheckerParser ( Parser ):
     T__22=23
     T__23=24
     T__24=25
-    T__25=26
-    Whitespace=27
-    Letter=28
-    NonZeroDigit=29
-    Digit=30
-    CharacterExceptQuote=31
-    Character=32
-    BlockComment=33
-    LineComment=34
+    Whitespace=26
+    ChunkLiteral=27
+    FractionLiteral=28
+    StringLiteral=29
+    Letter=30
+    NonZeroDigit=31
+    Digit=32
+    CharacterExceptQuote=33
+    Character=34
+    BlockComment=35
+    LineComment=36
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -270,13 +256,13 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 63
+            self.state = 57
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 300961794) != 0):
-                self.state = 60
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1106268162) != 0):
+                self.state = 54
                 self.statement()
-                self.state = 65
+                self.state = 59
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -341,32 +327,32 @@ class TypeCheckerParser ( Parser ):
         localctx = TypeCheckerParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_statement)
         try:
-            self.state = 71
+            self.state = 65
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [20, 21, 22, 23, 28]:
+            if token in [20, 21, 22, 23, 30]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 66
+                self.state = 60
                 self.variableDeclaration()
                 pass
             elif token in [24]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 67
+                self.state = 61
                 self.assignment()
                 pass
             elif token in [1]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 68
+                self.state = 62
                 self.showStatement()
                 pass
             elif token in [12]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 69
+                self.state = 63
                 self.classDeclaration()
                 pass
             elif token in [14]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 70
+                self.state = 64
                 self.templateDeclaration()
                 pass
             else:
@@ -418,11 +404,11 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_showStatement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 73
+            self.state = 67
             self.match(TypeCheckerParser.T__0)
-            self.state = 74
+            self.state = 68
             self.expression()
-            self.state = 75
+            self.state = 69
             self.match(TypeCheckerParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -470,11 +456,11 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_returnStatement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 77
+            self.state = 71
             self.match(TypeCheckerParser.T__2)
-            self.state = 78
+            self.state = 72
             self.expression()
-            self.state = 79
+            self.state = 73
             self.match(TypeCheckerParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -526,11 +512,11 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_createClassStatement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 81
+            self.state = 75
             self.match(TypeCheckerParser.T__3)
-            self.state = 82
+            self.state = 76
             self.className()
-            self.state = 83
+            self.state = 77
             self.parametersInit()
         except RecognitionException as re:
             localctx.exception = re
@@ -582,9 +568,9 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_variableSignature)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 85
+            self.state = 79
             self.type_()
-            self.state = 86
+            self.state = 80
             self.variableName()
         except RecognitionException as re:
             localctx.exception = re
@@ -640,25 +626,25 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_variableDeclaration)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 88
+            self.state = 82
             self.variableSignature()
-            self.state = 89
+            self.state = 83
             self.match(TypeCheckerParser.T__4)
-            self.state = 92
+            self.state = 86
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [6, 24, 26, 28, 29]:
-                self.state = 90
+            if token in [6, 24, 27, 28, 29, 30]:
+                self.state = 84
                 self.expression()
                 pass
             elif token in [4]:
-                self.state = 91
+                self.state = 85
                 self.createClassStatement()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 94
+            self.state = 88
             self.match(TypeCheckerParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -714,25 +700,25 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 96
+            self.state = 90
             self.variableName()
-            self.state = 97
+            self.state = 91
             self.match(TypeCheckerParser.T__4)
-            self.state = 100
+            self.state = 94
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [6, 24, 26, 28, 29]:
-                self.state = 98
+            if token in [6, 24, 27, 28, 29, 30]:
+                self.state = 92
                 self.expression()
                 pass
             elif token in [4]:
-                self.state = 99
+                self.state = 93
                 self.createClassStatement()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 102
+            self.state = 96
             self.match(TypeCheckerParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -791,27 +777,27 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 104
+            self.state = 98
             self.match(TypeCheckerParser.T__5)
-            self.state = 117
+            self.state = 111
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [20, 21, 22, 23, 28]:
-                self.state = 105
+            if token in [20, 21, 22, 23, 30]:
+                self.state = 99
                 self.type_()
-                self.state = 106
+                self.state = 100
                 self.variableName()
-                self.state = 113
+                self.state = 107
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==7:
-                    self.state = 107
+                    self.state = 101
                     self.match(TypeCheckerParser.T__6)
-                    self.state = 108
+                    self.state = 102
                     self.type_()
-                    self.state = 109
+                    self.state = 103
                     self.variableName()
-                    self.state = 115
+                    self.state = 109
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
@@ -821,7 +807,7 @@ class TypeCheckerParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 119
+            self.state = 113
             self.match(TypeCheckerParser.T__7)
         except RecognitionException as re:
             localctx.exception = re
@@ -877,13 +863,13 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_methodSignature)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 121
+            self.state = 115
             self.match(TypeCheckerParser.T__8)
-            self.state = 122
+            self.state = 116
             self.type_()
-            self.state = 123
+            self.state = 117
             self.methodName()
-            self.state = 124
+            self.state = 118
             self.parametersInit()
         except RecognitionException as re:
             localctx.exception = re
@@ -935,9 +921,9 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 20, self.RULE_methodDeclaration)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 126
+            self.state = 120
             self.methodSignature()
-            self.state = 127
+            self.state = 121
             self.methodBlock()
         except RecognitionException as re:
             localctx.exception = re
@@ -993,23 +979,23 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 129
+            self.state = 123
             self.match(TypeCheckerParser.T__9)
-            self.state = 133
+            self.state = 127
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 300961794) != 0):
-                self.state = 130
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1106268162) != 0):
+                self.state = 124
                 self.statement()
-                self.state = 135
+                self.state = 129
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 138
+            self.state = 132
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [3]:
-                self.state = 136
+                self.state = 130
                 self.returnStatement()
                 pass
             elif token in [11]:
@@ -1017,7 +1003,7 @@ class TypeCheckerParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 140
+            self.state = 134
             self.match(TypeCheckerParser.T__10)
         except RecognitionException as re:
             localctx.exception = re
@@ -1090,17 +1076,17 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 142
+            self.state = 136
             self.match(TypeCheckerParser.T__11)
-            self.state = 143
+            self.state = 137
             self.className()
-            self.state = 147
+            self.state = 141
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [13]:
-                self.state = 144
+                self.state = 138
                 self.match(TypeCheckerParser.T__12)
-                self.state = 145
+                self.state = 139
                 self.className()
                 pass
             elif token in [10]:
@@ -1108,42 +1094,42 @@ class TypeCheckerParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 149
+            self.state = 143
             self.match(TypeCheckerParser.T__9)
-            self.state = 155
+            self.state = 149
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 150
+                    self.state = 144
                     self.variableSignature()
-                    self.state = 151
+                    self.state = 145
                     self.match(TypeCheckerParser.T__1) 
-                self.state = 157
+                self.state = 151
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
+
+            self.state = 155
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1089470464) != 0):
+                self.state = 152
+                self.variableDeclaration()
+                self.state = 157
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
 
             self.state = 161
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 284164096) != 0):
+            while _la==9:
                 self.state = 158
-                self.variableDeclaration()
+                self.methodDeclaration()
                 self.state = 163
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 167
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==9:
-                self.state = 164
-                self.methodDeclaration()
-                self.state = 169
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
-            self.state = 170
+            self.state = 164
             self.match(TypeCheckerParser.T__10)
         except RecognitionException as re:
             localctx.exception = re
@@ -1206,37 +1192,37 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
+            self.state = 166
             self.match(TypeCheckerParser.T__13)
-            self.state = 173
+            self.state = 167
             self.className()
-            self.state = 174
+            self.state = 168
             self.match(TypeCheckerParser.T__9)
-            self.state = 180
+            self.state = 174
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 284164096) != 0):
-                self.state = 175
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1089470464) != 0):
+                self.state = 169
                 self.variableSignature()
-                self.state = 176
+                self.state = 170
                 self.match(TypeCheckerParser.T__1)
-                self.state = 182
+                self.state = 176
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 188
+            self.state = 182
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==9:
-                self.state = 183
+                self.state = 177
                 self.methodSignature()
-                self.state = 184
+                self.state = 178
                 self.match(TypeCheckerParser.T__1)
-                self.state = 190
+                self.state = 184
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 191
+            self.state = 185
             self.match(TypeCheckerParser.T__10)
         except RecognitionException as re:
             localctx.exception = re
@@ -1288,23 +1274,23 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 193
+            self.state = 187
             self.match(TypeCheckerParser.T__5)
-            self.state = 203
+            self.state = 197
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [6, 24, 26, 28, 29]:
-                self.state = 194
+            if token in [6, 24, 27, 28, 29, 30]:
+                self.state = 188
                 self.expression()
-                self.state = 199
+                self.state = 193
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==7:
-                    self.state = 195
+                    self.state = 189
                     self.match(TypeCheckerParser.T__6)
-                    self.state = 196
+                    self.state = 190
                     self.expression()
-                    self.state = 201
+                    self.state = 195
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
@@ -1314,7 +1300,7 @@ class TypeCheckerParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 205
+            self.state = 199
             self.match(TypeCheckerParser.T__7)
         except RecognitionException as re:
             localctx.exception = re
@@ -1369,23 +1355,23 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 30, self.RULE_classVariableAccess)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 209
+            self.state = 203
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [28]:
-                self.state = 207
+            if token in [30]:
+                self.state = 201
                 self.className()
                 pass
             elif token in [24]:
-                self.state = 208
+                self.state = 202
                 self.variableName()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 211
+            self.state = 205
             self.match(TypeCheckerParser.T__14)
-            self.state = 212
+            self.state = 206
             self.variableName()
         except RecognitionException as re:
             localctx.exception = re
@@ -1445,25 +1431,25 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 32, self.RULE_classMethodAccess)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 216
+            self.state = 210
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [28]:
-                self.state = 214
+            if token in [30]:
+                self.state = 208
                 self.className()
                 pass
             elif token in [24]:
-                self.state = 215
+                self.state = 209
                 self.variableName()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 218
+            self.state = 212
             self.match(TypeCheckerParser.T__14)
-            self.state = 219
+            self.state = 213
             self.methodName()
-            self.state = 220
+            self.state = 214
             self.parametersCall()
         except RecognitionException as re:
             localctx.exception = re
@@ -1511,7 +1497,7 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 34, self.RULE_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 222
+            self.state = 216
             self.additiveExpression()
         except RecognitionException as re:
             localctx.exception = re
@@ -1563,22 +1549,22 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 224
+            self.state = 218
             self.multiplicativeExpression()
-            self.state = 229
+            self.state = 223
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==16 or _la==17:
-                self.state = 225
+                self.state = 219
                 _la = self._input.LA(1)
                 if not(_la==16 or _la==17):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 226
+                self.state = 220
                 self.multiplicativeExpression()
-                self.state = 231
+                self.state = 225
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1632,22 +1618,22 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 232
+            self.state = 226
             self.term()
-            self.state = 237
+            self.state = 231
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==18 or _la==19:
-                self.state = 233
+                self.state = 227
                 _la = self._input.LA(1)
                 if not(_la==18 or _la==19):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 234
+                self.state = 228
                 self.term()
-                self.state = 239
+                self.state = 233
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1712,40 +1698,40 @@ class TypeCheckerParser ( Parser ):
         localctx = TypeCheckerParser.TermContext(self, self._ctx, self.state)
         self.enterRule(localctx, 40, self.RULE_term)
         try:
-            self.state = 248
+            self.state = 242
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,20,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 240
+                self.state = 234
                 self.variableName()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 241
+                self.state = 235
                 self.literal()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 242
+                self.state = 236
                 self.classVariableAccess()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 243
+                self.state = 237
                 self.classMethodAccess()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 244
+                self.state = 238
                 self.match(TypeCheckerParser.T__5)
-                self.state = 245
+                self.state = 239
                 self.expression()
-                self.state = 246
+                self.state = 240
                 self.match(TypeCheckerParser.T__7)
                 pass
 
@@ -1795,32 +1781,32 @@ class TypeCheckerParser ( Parser ):
         localctx = TypeCheckerParser.TypeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 42, self.RULE_type)
         try:
-            self.state = 255
+            self.state = 249
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [20]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 250
+                self.state = 244
                 self.match(TypeCheckerParser.T__19)
                 pass
             elif token in [21]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 251
+                self.state = 245
                 self.match(TypeCheckerParser.T__20)
                 pass
             elif token in [22]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 252
+                self.state = 246
                 self.match(TypeCheckerParser.T__21)
                 pass
             elif token in [23]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 253
+                self.state = 247
                 self.match(TypeCheckerParser.T__22)
                 pass
-            elif token in [28]:
+            elif token in [30]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 254
+                self.state = 248
                 self.className()
                 pass
             else:
@@ -1872,9 +1858,9 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 44, self.RULE_variableName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 257
+            self.state = 251
             self.match(TypeCheckerParser.T__23)
-            self.state = 258
+            self.state = 252
             self.identifier()
         except RecognitionException as re:
             localctx.exception = re
@@ -1922,7 +1908,7 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 46, self.RULE_className)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 260
+            self.state = 254
             self.identifier()
         except RecognitionException as re:
             localctx.exception = re
@@ -1970,7 +1956,7 @@ class TypeCheckerParser ( Parser ):
         self.enterRule(localctx, 48, self.RULE_methodName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 262
+            self.state = 256
             self.identifier()
         except RecognitionException as re:
             localctx.exception = re
@@ -2027,21 +2013,21 @@ class TypeCheckerParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 264
+            self.state = 258
             self.match(TypeCheckerParser.Letter)
-            self.state = 268
+            self.state = 262
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,22,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 265
+                    self.state = 259
                     _la = self._input.LA(1)
-                    if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 1375731712) != 0)):
+                    if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 5402263552) != 0)):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume() 
-                self.state = 270
+                self.state = 264
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,22,self._ctx)
 
@@ -2061,17 +2047,14 @@ class TypeCheckerParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def chunkLiteral(self):
-            return self.getTypedRuleContext(TypeCheckerParser.ChunkLiteralContext,0)
+        def ChunkLiteral(self):
+            return self.getToken(TypeCheckerParser.ChunkLiteral, 0)
 
+        def FractionLiteral(self):
+            return self.getToken(TypeCheckerParser.FractionLiteral, 0)
 
-        def fractionLiteral(self):
-            return self.getTypedRuleContext(TypeCheckerParser.FractionLiteralContext,0)
-
-
-        def stringLiteral(self):
-            return self.getTypedRuleContext(TypeCheckerParser.StringLiteralContext,0)
-
+        def StringLiteral(self):
+            return self.getToken(TypeCheckerParser.StringLiteral, 0)
 
         def getRuleIndex(self):
             return TypeCheckerParser.RULE_literal
@@ -2097,223 +2080,16 @@ class TypeCheckerParser ( Parser ):
 
         localctx = TypeCheckerParser.LiteralContext(self, self._ctx, self.state)
         self.enterRule(localctx, 52, self.RULE_literal)
-        try:
-            self.state = 274
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,23,self._ctx)
-            if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 271
-                self.chunkLiteral()
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 272
-                self.fractionLiteral()
-                pass
-
-            elif la_ == 3:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 273
-                self.stringLiteral()
-                pass
-
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class ChunkLiteralContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def NonZeroDigit(self):
-            return self.getToken(TypeCheckerParser.NonZeroDigit, 0)
-
-        def Digit(self, i:int=None):
-            if i is None:
-                return self.getTokens(TypeCheckerParser.Digit)
-            else:
-                return self.getToken(TypeCheckerParser.Digit, i)
-
-        def getRuleIndex(self):
-            return TypeCheckerParser.RULE_chunkLiteral
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterChunkLiteral" ):
-                listener.enterChunkLiteral(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitChunkLiteral" ):
-                listener.exitChunkLiteral(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitChunkLiteral" ):
-                return visitor.visitChunkLiteral(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-
-    def chunkLiteral(self):
-
-        localctx = TypeCheckerParser.ChunkLiteralContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_chunkLiteral)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 276
-            self.match(TypeCheckerParser.NonZeroDigit)
-            self.state = 280
-            self._errHandler.sync(self)
+            self.state = 265
             _la = self._input.LA(1)
-            while _la==30:
-                self.state = 277
-                self.match(TypeCheckerParser.Digit)
-                self.state = 282
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class FractionLiteralContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def chunkLiteral(self):
-            return self.getTypedRuleContext(TypeCheckerParser.ChunkLiteralContext,0)
-
-
-        def Digit(self, i:int=None):
-            if i is None:
-                return self.getTokens(TypeCheckerParser.Digit)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 939524096) != 0)):
+                self._errHandler.recoverInline(self)
             else:
-                return self.getToken(TypeCheckerParser.Digit, i)
-
-        def getRuleIndex(self):
-            return TypeCheckerParser.RULE_fractionLiteral
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFractionLiteral" ):
-                listener.enterFractionLiteral(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFractionLiteral" ):
-                listener.exitFractionLiteral(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFractionLiteral" ):
-                return visitor.visitFractionLiteral(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-
-    def fractionLiteral(self):
-
-        localctx = TypeCheckerParser.FractionLiteralContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_fractionLiteral)
-        self._la = 0 # Token type
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 283
-            self.chunkLiteral()
-            self.state = 284
-            self.match(TypeCheckerParser.T__14)
-            self.state = 288
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==30:
-                self.state = 285
-                self.match(TypeCheckerParser.Digit)
-                self.state = 290
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class StringLiteralContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def CharacterExceptQuote(self, i:int=None):
-            if i is None:
-                return self.getTokens(TypeCheckerParser.CharacterExceptQuote)
-            else:
-                return self.getToken(TypeCheckerParser.CharacterExceptQuote, i)
-
-        def getRuleIndex(self):
-            return TypeCheckerParser.RULE_stringLiteral
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStringLiteral" ):
-                listener.enterStringLiteral(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStringLiteral" ):
-                listener.exitStringLiteral(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitStringLiteral" ):
-                return visitor.visitStringLiteral(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-
-    def stringLiteral(self):
-
-        localctx = TypeCheckerParser.StringLiteralContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_stringLiteral)
-        self._la = 0 # Token type
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 291
-            self.match(TypeCheckerParser.T__25)
-            self.state = 295
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==31:
-                self.state = 292
-                self.match(TypeCheckerParser.CharacterExceptQuote)
-                self.state = 297
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
-            self.state = 298
-            self.match(TypeCheckerParser.T__25)
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
