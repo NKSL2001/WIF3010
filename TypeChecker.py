@@ -7,6 +7,7 @@ class TypeChecker(ExprVisitor):
         self.symbol_table = {}  # Tracks variable names and their types
         self.used_variables = set()  # Tracks variables that are used
         self.valid_variable_pattern = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")  # Regex for valid names
+        self.inheritance_map = {}  # Tracks inheritance relationships
 
     def markVariableAsUsed(self, var_name):
         """Helper function to mark variables as used."""
@@ -89,7 +90,9 @@ class TypeChecker(ExprVisitor):
         initializer = ctx.expression() or ctx.createClassStatement()  # Check if there's an initializer expression
 
         if initializer:
-            init_type = self.visit(initializer)  # Visit the initializer to get its type
+            init_val = self.visit(initializer)  # Visit the initializer to get its type
+            # TODO: Handle class initialization & get variable type
+            init_type = init_val if isinstance(init_val, str) else init_val  # Get the type of the initializer
             if init_type != var_type:
                 raise Exception(f"Type mismatch: Cannot assign {init_type} to {var_type} for variable '{var_name}' at line {line}, column {col}.")
     
@@ -151,8 +154,10 @@ class TypeChecker(ExprVisitor):
     
     def visitClassDeclaration(self, ctx: ExprParser.ClassDeclarationContext):
         # Handle class name and inheritance
-        class_name = ctx.className().getText()
-        superclass_name = ctx.classDeclaration().inherit()
+        class_name = ctx.className()[0].Identifier()
+        superclass_name = None
+        if len(ctx.className()) > 1:
+            superclass_name = ctx.className()[1].Identifier() or None
         
         # Check if the class already exists in the symbol table
         if class_name in self.symbol_table:
@@ -163,11 +168,6 @@ class TypeChecker(ExprVisitor):
             self.inheritance_map[class_name] = superclass_name
         else:
             self.inheritance_map[class_name] = None  # No inheritance
-    
-        # If the class inherits from another, process the inheritance
-        if ctx.parentClass():
-            parent_class = ctx.parentClass().getText()
-            self.visit(parent_class)  # Visit the parent class to add its fields/methods
         
         # Add class fields (variables)
         for field in ctx.variableSignature():
@@ -236,8 +236,8 @@ class TypeChecker(ExprVisitor):
             return self.symbol_table[var_name]["type"]
         
         # Check if the term is a literal
-        elif ctx.literal():
-            return self.visit(ctx.literal())
+        elif ctx.Literal():
+            return ctx.Literal().getText()
         
         # Check if the term is a classVariableAccess
         elif ctx.classVariableAccess():
