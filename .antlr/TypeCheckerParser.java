@@ -124,6 +124,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitProgram(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -181,6 +189,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitStatement(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -253,6 +269,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_showStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterShowStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitShowStatement(this);
+		}
 	}
 
 	public final ShowStatementContext showStatement() throws RecognitionException {
@@ -289,6 +313,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_returnStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterReturnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitReturnStatement(this);
+		}
 	}
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
@@ -328,6 +360,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_createClassStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterCreateClassStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitCreateClassStatement(this);
+		}
 	}
 
 	public final CreateClassStatementContext createClassStatement() throws RecognitionException {
@@ -367,6 +407,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variableSignature; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterVariableSignature(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitVariableSignature(this);
+		}
 	}
 
 	public final VariableSignatureContext variableSignature() throws RecognitionException {
@@ -407,6 +455,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variableDeclaration; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterVariableDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitVariableDeclaration(this);
+		}
 	}
 
 	public final VariableDeclarationContext variableDeclaration() throws RecognitionException {
@@ -471,6 +527,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assignment; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterAssignment(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitAssignment(this);
+		}
 	}
 
 	public final AssignmentContext assignment() throws RecognitionException {
@@ -538,6 +602,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametersInit; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterParametersInit(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitParametersInit(this);
+		}
 	}
 
 	public final ParametersInitContext parametersInit() throws RecognitionException {
@@ -619,6 +691,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_methodSignature; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterMethodSignature(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitMethodSignature(this);
+		}
 	}
 
 	public final MethodSignatureContext methodSignature() throws RecognitionException {
@@ -660,6 +740,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_methodDeclaration; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterMethodDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitMethodDeclaration(this);
+		}
 	}
 
 	public final MethodDeclarationContext methodDeclaration() throws RecognitionException {
@@ -700,6 +788,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_methodBlock; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterMethodBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitMethodBlock(this);
+		}
 	}
 
 	public final MethodBlockContext methodBlock() throws RecognitionException {
@@ -786,6 +882,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_classDeclaration; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterClassDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitClassDeclaration(this);
+		}
 	}
 
 	public final ClassDeclarationContext classDeclaration() throws RecognitionException {
@@ -902,6 +1006,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_templateDeclaration; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterTemplateDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitTemplateDeclaration(this);
+		}
 	}
 
 	public final TemplateDeclarationContext templateDeclaration() throws RecognitionException {
@@ -976,6 +1088,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametersCall; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterParametersCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitParametersCall(this);
+		}
 	}
 
 	public final ParametersCallContext parametersCall() throws RecognitionException {
@@ -1053,6 +1173,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_classVariableAccess; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterClassVariableAccess(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitClassVariableAccess(this);
+		}
 	}
 
 	public final ClassVariableAccessContext classVariableAccess() throws RecognitionException {
@@ -1114,6 +1242,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_classMethodAccess; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterClassMethodAccess(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitClassMethodAccess(this);
+		}
 	}
 
 	public final ClassMethodAccessContext classMethodAccess() throws RecognitionException {
@@ -1168,6 +1304,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitExpression(this);
+		}
 	}
 
 	public final ExpressionContext expression() throws RecognitionException {
@@ -1203,6 +1347,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_additiveExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterAdditiveExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitAdditiveExpression(this);
+		}
 	}
 
 	public final AdditiveExpressionContext additiveExpression() throws RecognitionException {
@@ -1263,6 +1415,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_multiplicativeExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterMultiplicativeExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitMultiplicativeExpression(this);
+		}
 	}
 
 	public final MultiplicativeExpressionContext multiplicativeExpression() throws RecognitionException {
@@ -1332,6 +1492,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_term; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterTerm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitTerm(this);
+		}
 	}
 
 	public final TermContext term() throws RecognitionException {
@@ -1402,6 +1570,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterType(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitType(this);
+		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -1470,6 +1646,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variableName; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterVariableName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitVariableName(this);
+		}
 	}
 
 	public final VariableNameContext variableName() throws RecognitionException {
@@ -1504,6 +1688,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_className; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterClassName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitClassName(this);
+		}
 	}
 
 	public final ClassNameContext className() throws RecognitionException {
@@ -1536,6 +1728,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_methodName; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterMethodName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitMethodName(this);
+		}
 	}
 
 	public final MethodNameContext methodName() throws RecognitionException {
@@ -1573,6 +1773,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_identifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterIdentifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitIdentifier(this);
+		}
 	}
 
 	public final IdentifierContext identifier() throws RecognitionException {
@@ -1637,6 +1845,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_literal; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitLiteral(this);
+		}
 	}
 
 	public final LiteralContext literal() throws RecognitionException {
@@ -1691,6 +1907,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chunkLiteral; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterChunkLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitChunkLiteral(this);
+		}
 	}
 
 	public final ChunkLiteralContext chunkLiteral() throws RecognitionException {
@@ -1742,6 +1966,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fractionLiteral; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterFractionLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitFractionLiteral(this);
+		}
 	}
 
 	public final FractionLiteralContext fractionLiteral() throws RecognitionException {
@@ -1792,6 +2024,14 @@ public class TypeCheckerParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_stringLiteral; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).enterStringLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TypeCheckerListener ) ((TypeCheckerListener)listener).exitStringLiteral(this);
+		}
 	}
 
 	public final StringLiteralContext stringLiteral() throws RecognitionException {

@@ -256,4 +256,54 @@ public interface TypeCheckerListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMethodName(TypeCheckerParser.MethodNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeCheckerParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifier(TypeCheckerParser.IdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeCheckerParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifier(TypeCheckerParser.IdentifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeCheckerParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(TypeCheckerParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeCheckerParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(TypeCheckerParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeCheckerParser#chunkLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterChunkLiteral(TypeCheckerParser.ChunkLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeCheckerParser#chunkLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitChunkLiteral(TypeCheckerParser.ChunkLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeCheckerParser#fractionLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterFractionLiteral(TypeCheckerParser.FractionLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeCheckerParser#fractionLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitFractionLiteral(TypeCheckerParser.FractionLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeCheckerParser#stringLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringLiteral(TypeCheckerParser.StringLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeCheckerParser#stringLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringLiteral(TypeCheckerParser.StringLiteralContext ctx);
 }
