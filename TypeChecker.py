@@ -121,25 +121,34 @@ class TypeChecker(ExprVisitor):
             raise Exception(f"Type mismatch: Cannot assign {expr_type} to {declared_type} for variable '{var_name}' at line {line}, column {col}.")
         
         # If types are compatible, continue (assignment is valid)
-    
+
     def visitMethodDeclaration(self, ctx: ExprParser.MethodDeclarationContext):
-        # Handle method signature (type, method name, and parameters)
+        # Handle method signature (method_name, type, parameters)
         method_name = ctx.methodSignature().methodName().getText()
-        return_type = ctx.methodSignature().type().getText()
-        parameters = ctx.methodSignature().parametersInit().variableSignature()
-
-        # Add method parameters to the symbol table        
-        for param in parameters:  # Now iterating over individual 'variableSignature' objects
-            var_name = param.variableName().getText()  # This should be a single variable name
-            var_type = param.type_().getText()  # This should be the type of the variable
-
-            # Add parameter to the symbol table
-            self.symbol_table[var_name] = {"type": var_type, "line": ctx.start.line}
+        return_type = ctx.methodSignature().type_().getText()
+        parameters = ctx.methodSignature().parametersInit()
         
-        # Check if method already exists (to avoid redeclaration)
-        if method_name in self.symbol_table:
-            line, col = self.get_line_info(ctx)
-            raise Exception(f"Method '{method_name}' already declared at line {line}, column {col}.")
+        # # Check if method already exists (to avoid redeclaration)
+        # if method_name in self.symbol_table:
+        #     line, col = self.get_line_info(ctx)
+        #     raise Exception(f"Method '{method_name}' already declared at line {line}, column {col}.")
+
+        param_children = list(parameters.getChildren())
+        seen_params = set()
+        # Iterate over parameter pairs (type, variableName)
+        for i, child in enumerate(param_children):
+            if isinstance(child, ExprParser.TypeContext):
+                param_type = child.getText()
+                param_name = param_children[i + 1].getText() if i + 1 < len(param_children) else None
+
+                if param_name in seen_params:
+                    raise Exception(f"Duplicate parameter: {param_type} {param_name} found in method '{method_name}'.")
+                
+                seen_params.add(param_name)
+        
+        # Add method to the symbol table, including its return type
+        if method_name not in self.symbol_table:
+            self.symbol_table[method_name] = {"type": return_type, "line": ctx.start.line}
 
         # Now handle method block (statements inside method)
         self.visit(ctx.methodBlock())
@@ -148,36 +157,78 @@ class TypeChecker(ExprVisitor):
         return_statement = ctx.methodBlock().returnStatement()
         if return_statement:
             return_expr_type = self.visit(return_statement.expression())
+            print(f"Return statement type: {return_expr_type}")
             if return_expr_type != return_type:
                 line, col = self.get_line_info(return_statement)
                 raise Exception(f"Type mismatch in return statement at line {line}, column {col}: expected {return_type} but got {return_expr_type}.")
     
     def visitClassDeclaration(self, ctx: ExprParser.ClassDeclarationContext):
         # Handle class name and inheritance
-        class_name = ctx.className()[0].Identifier()
+        class_name = ctx.className()[0].getText()
         superclass_name = None
+
         if len(ctx.className()) > 1:
-            superclass_name = ctx.className()[1].Identifier() or None
+            superclass_name = ctx.className()[1].getText()
         
         # Check if the class already exists in the symbol table
         if class_name in self.symbol_table:
             line, col = self.get_line_info(ctx)
             raise Exception(f"Class '{class_name}' already declared at line {line}, column {col}.")
         
+        # Check if the class is a template (abstract class/interface)
+        is_template = False
+        if isinstance(ctx, ExprParser.TemplateDeclarationContext):
+            is_template = True
+            # Handle template-specific logic, e.g., abstract methods
+            print(f"Template class '{class_name}' detected.")
+
         if superclass_name:
             self.inheritance_map[class_name] = superclass_name
         else:
             self.inheritance_map[class_name] = None  # No inheritance
         
+        # Add class to symbol table, indicating whether it's a template (abstract class/interface)
+        self.symbol_table[class_name] = {"type": "class" if not is_template else "template", "line": ctx.start.line, "is_template": is_template}
+
         # Add class fields (variables)
         for field in ctx.variableSignature():
-            var_name = field.variableName().getText()
-            var_type = field.type().getText()
-            self.symbol_table[var_name] = {"type": var_type, "line": ctx.start.line}
+            # Initialize var_type to None before the try block
+            var_type = None
+            var_name = None
+
+            try:
+                if hasattr(field, 'type'): # Check if we can access the type directly
+                    field_type = field.type() # Access type and get text
+                    if field_type:
+                        var_type = field_type.getText()
+                
+                if hasattr(field, 'variableName'):  # Check if we can access the variableName directly
+                    var_name = field.variableName().getText() # Access variable name and get text
+
+                if var_name is not None:
+                    # Handle variable existence in the symbol table
+                    if var_name in self.symbol_table:
+                        line, col = self.get_line_info(field)
+                        raise Exception(f"Variable '{var_name}' already declared at line {line}, column {col}.")
+                    self.symbol_table[var_name] = {"type": var_type, "line": ctx.start.line}
+
+            except AttributeError as e:
+                print(f"Error accessing attributes: {e}")
         
         # Add methods to symbol table
         for method in ctx.methodDeclaration():
             self.visitMethodDeclaration(method)  # Visit each method declaration
+
+        # Handle abstract methods if this is a template (abstract class/interface)
+        if is_template:
+            for method in ctx.methodDeclaration():
+                method_name = method.methodSignature().methodName().getText()
+                # Assuming methods in templates are abstract by default
+                self.symbol_table[method_name] = {"type": "abstract method", "line": method.start.line}
+                print(f"Abstract method '{method_name}' in template class '{class_name}'.")
+
+        # Visit the children of the class declaration (optional, depending on your needs)
+        self.visitChildren(ctx)
     
     def visitExpression(self, ctx: ExprParser.ExpressionContext):
         # Delegate to additiveExpression, as it's the core of the expression
@@ -236,8 +287,8 @@ class TypeChecker(ExprVisitor):
             return self.symbol_table[var_name]["type"]
         
         # Check if the term is a literal
-        elif ctx.Literal():
-            return ctx.Literal().getText()
+        elif ctx.literal(): 
+            return self.visit(ctx.literal())  
         
         # Check if the term is a classVariableAccess
         elif ctx.classVariableAccess():
@@ -252,4 +303,18 @@ class TypeChecker(ExprVisitor):
             return self.visit(ctx.expression())
         
         raise Exception(f"Unsupported term: {ctx.getText()}")
+
+    def visitIdentifier(self, ctx:ExprParser.IdentifierContext):
+        return ctx.getText()
+
+    def visitLiteral(self, ctx:ExprParser.LiteralContext):
+        # Check if it's a chunkLiteral, fractionLiteral, or stringLiteral
+        if ctx.chunkLiteral():
+            return 'chunk'  # Return the type for chunk literal
+        elif ctx.fractionLiteral():
+            return 'fraction'  # Return the type for fraction literal
+        elif ctx.stringLiteral():
+            return 'string'  # Return the type for string literal
+        else:
+            raise Exception(f"Unsupported literal: {ctx.getText()}")
     

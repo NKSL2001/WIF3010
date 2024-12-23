@@ -134,5 +134,30 @@ class TypeCheckerVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by TypeCheckerParser#identifier.
+    def visitIdentifier(self, ctx:TypeCheckerParser.IdentifierContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by TypeCheckerParser#literal.
+    def visitLiteral(self, ctx:TypeCheckerParser.LiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by TypeCheckerParser#chunkLiteral.
+    def visitChunkLiteral(self, ctx:TypeCheckerParser.ChunkLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by TypeCheckerParser#fractionLiteral.
+    def visitFractionLiteral(self, ctx:TypeCheckerParser.FractionLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by TypeCheckerParser#stringLiteral.
+    def visitStringLiteral(self, ctx:TypeCheckerParser.StringLiteralContext):
+        return self.visitChildren(ctx)
+
+
 
 del TypeCheckerParser

@@ -233,5 +233,50 @@ class TypeCheckerListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by TypeCheckerParser#identifier.
+    def enterIdentifier(self, ctx:TypeCheckerParser.IdentifierContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#identifier.
+    def exitIdentifier(self, ctx:TypeCheckerParser.IdentifierContext):
+        pass
+
+
+    # Enter a parse tree produced by TypeCheckerParser#literal.
+    def enterLiteral(self, ctx:TypeCheckerParser.LiteralContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#literal.
+    def exitLiteral(self, ctx:TypeCheckerParser.LiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by TypeCheckerParser#chunkLiteral.
+    def enterChunkLiteral(self, ctx:TypeCheckerParser.ChunkLiteralContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#chunkLiteral.
+    def exitChunkLiteral(self, ctx:TypeCheckerParser.ChunkLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by TypeCheckerParser#fractionLiteral.
+    def enterFractionLiteral(self, ctx:TypeCheckerParser.FractionLiteralContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#fractionLiteral.
+    def exitFractionLiteral(self, ctx:TypeCheckerParser.FractionLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by TypeCheckerParser#stringLiteral.
+    def enterStringLiteral(self, ctx:TypeCheckerParser.StringLiteralContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#stringLiteral.
+    def exitStringLiteral(self, ctx:TypeCheckerParser.StringLiteralContext):
+        pass
+
+
 
 del TypeCheckerParser
