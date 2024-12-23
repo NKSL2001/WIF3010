@@ -34,14 +34,14 @@ expression       : additiveExpression;
 /* for operation precedence */
 additiveExpression : multiplicativeExpression (('+' | '-') multiplicativeExpression)*;
 multiplicativeExpression : term  ( ('*' | '/' ) term )*;
-term             : variableName | Literal | classVariableAccess | classMethodAccess | '(' expression ')' ;
+term             : variableName | literal | classVariableAccess | classMethodAccess | '(' expression ')' ;
 
 type             : 'chunk' | 'fraction' | 'string' | 'none' | className ;
 variableName     : '$' Identifier ;
 className        : Identifier ;
 methodName       : Identifier ;
 Identifier       : Letter ( Letter | Digit | '_' )* ;
-Literal          : ChunkLiteral | FractionLiteral | StringLiteral ;
+literal          : ChunkLiteral | FractionLiteral | StringLiteral ;
 ChunkLiteral     : NonZeroDigit ( Digit )* ;
 FractionLiteral  : ChunkLiteral '.' ( Digit )* ;
 StringLiteral    : '"' ( CharacterExceptQuote )* '"' ;

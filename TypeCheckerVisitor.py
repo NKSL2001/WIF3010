@@ -134,5 +134,10 @@ class TypeCheckerVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by TypeCheckerParser#literal.
+    def visitLiteral(self, ctx:TypeCheckerParser.LiteralContext):
+        return self.visitChildren(ctx)
+
+
 
 del TypeCheckerParser
