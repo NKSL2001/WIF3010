@@ -5,7 +5,7 @@ program          : statement*;
 statement        : variableDeclaration | assignment | showStatement | classDeclaration | templateDeclaration ;
 showStatement    : 'show' expression '!' ;
 returnStatement  : 'return' expression '!' ;
-createClassStatement  : 'new' className parametersInit ;
+createClassStatement  : 'new' className parametersCall ;
 
 variableSignature : type variableName ;
 variableDeclaration : variableSignature ':=' (expression | createClassStatement ) '!' ;
