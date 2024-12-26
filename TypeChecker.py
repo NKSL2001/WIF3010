@@ -1,12 +1,10 @@
 from TypeCheckerParser import TypeCheckerParser as ExprParser
 from TypeCheckerVisitor import TypeCheckerVisitor as ExprVisitor
-import re
 
 class TypeChecker(ExprVisitor):
     def __init__(self):
         self.symbol_table = {}  # Tracks variable names and their types
         self.used_variables = set()  # Tracks variables that are used
-        self.valid_variable_pattern = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")  # Regex for valid names
         self.inheritance_map = {}  # Tracks inheritance relationships
 
     def markVariableAsUsed(self, var_name):
@@ -70,14 +68,6 @@ class TypeChecker(ExprVisitor):
 
         # Get line number for better error messages
         line, col = self.get_line_info(ctx)
-
-        # Check that the variable name starts with '$' and validate the rest of the name
-        if not var_name.startswith('$'):
-            raise Exception(f"Invalid variable name: '{var_name}' at line {line}, column {col}. Variable names must start with '$'.")
-        
-        # Check if the variable name is valid (you can implement custom logic here)
-        if not self.valid_variable_pattern.match(var_name[1:]): # Check what follows '$'
-            raise Exception(f"Invalid variable name: '{var_name}' at line {line}, column {col}. Variable names must start with a letter or underscore and contain only alphanumeric characters.")
 
         # Check for redeclaration of the variable
         if var_name in self.symbol_table:
