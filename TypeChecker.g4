@@ -41,10 +41,10 @@ variableName     : '$' identifier ;
 className        : identifier ;
 methodName       : identifier ;
 identifier       : Letter ( Letter | Digit | '_' )* ;
-literal          : chunkLiteral | fractionLiteral | stringLiteral ;
-chunkLiteral     : NonZeroDigit ( Digit )* ;
-fractionLiteral  : chunkLiteral '.' ( Digit )* ;
-stringLiteral    : '"' ( CharacterExceptQuote )* '"' ;
+literal          : ChunkLiteral | FractionLiteral | StringLiteral ;
+ChunkLiteral     : NonZeroDigit ( Digit )* ;
+FractionLiteral  : ChunkLiteral '.' ( Digit )* ;
+StringLiteral    : '"' ( CharacterExceptQuote )* '"' ;
 
 Letter           : 'A'..'Z' | 'a'..'z' ;
 NonZeroDigit     : '1'..'9' ;
