@@ -318,3 +318,49 @@ class TypeChecker(ExprVisitor):
         else:
             raise Exception(f"Unsupported literal: {ctx.getText()}")
     
+    def visitCreateClassStatement(self, ctx: ExprParser.CreateClassStatementContext):
+        try:
+            class_name = ctx.className().getText()
+
+            # Check if the class exists
+            if class_name not in self.symbol_table:
+                print(self.symbol_table)
+                raise Exception(f"Class '{class_name}' not declared.")
+            
+            self.markVariableAsUsed(class_name)
+            
+            for variable in ctx.parametersCall().expression():
+                resolved_variable = self.visit(variable)
+            
+            return class_name
+        except Exception as e:
+            raise Exception(f"Error in class creation: {e}")
+    
+    def visitClassMethodAccess(self, ctx: ExprParser.ClassMethodAccessContext):
+        if ctx.variableName():
+            var_name = ctx.variableName().getText()
+            if var_name not in self.symbol_table:
+                line, col = self.get_line_info(ctx)
+                raise Exception(f"Variable '{var_name}' not declared at line {line}, column {col}.")
+            self.markVariableAsUsed(var_name)
+            return self.symbol_table[var_name]["type"]
+        elif ctx.className():
+            class_name = ctx.className().getText()
+            if class_name not in self.symbol_table:
+                line, col = self.get_line_info(ctx)
+                raise Exception(f"Class '{class_name}' not declared at line {line}, column {col}.")
+            return self.symbol_table[class_name][ctx.methodName().getText()]["type"]
+    
+    def visitClassVariableAccess(self, ctx: ExprParser.ClassVariableAccessContext):
+        if ctx.variableName():
+            var_name = ctx.variableName().getText()
+            if var_name not in self.symbol_table:
+                line, col = self.get_line_info(ctx)
+                raise Exception(f"Variable '{var_name}' not declared at line {line}, column {col}.")
+            self.markVariableAsUsed(var_name)
+            return self.symbol_table[var_name]["type"]
+        elif ctx.className():
+            class_name = ctx.className().getText()
+            if class_name not in self.symbol_table:
+                line, col = self.get_line_info(ctx)
+                raise Exception(f"Class '{class_name}' not declared at line {line}, column {col}.")
