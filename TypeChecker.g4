@@ -37,10 +37,10 @@ multiplicativeExpression : term  ( ('*' | '/' ) term )*;
 term             : variableName | literal | classVariableAccess | classMethodAccess | '(' expression ')' ;
 
 type             : 'chunk' | 'fraction' | 'string' | 'none' | className ;
-variableName     : '$' identifier ;
-className        : identifier ;
-methodName       : identifier ;
-identifier       : Letter ( Letter | Digit | '_' )* ;
+variableName     : '$' Identifier ;
+className        : Identifier ;
+methodName       : Identifier ;
+Identifier       : Letter ( Letter | Digit | '_' )* ;
 literal          : ChunkLiteral | FractionLiteral | StringLiteral ;
 ChunkLiteral     : NonZeroDigit ( Digit )* ;
 FractionLiteral  : ChunkLiteral '.' ( Digit )* ;

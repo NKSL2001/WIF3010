@@ -304,9 +304,6 @@ class TypeChecker(ExprVisitor):
         
         raise Exception(f"Unsupported term: {ctx.getText()}")
 
-    def visitIdentifier(self, ctx:ExprParser.IdentifierContext):
-        return ctx.getText()
-
     def visitLiteral(self, ctx:ExprParser.LiteralContext):
         # Check if it's a chunkLiteral, fractionLiteral, or stringLiteral
         if ctx.ChunkLiteral():
