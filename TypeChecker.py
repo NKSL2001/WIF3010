@@ -90,9 +90,7 @@ class TypeChecker(ExprVisitor):
         initializer = ctx.expression() or ctx.createClassStatement()  # Check if there's an initializer expression
 
         if initializer:
-            init_val = self.visit(initializer)  # Visit the initializer to get its type
-            # TODO: Handle class initialization & get variable type
-            init_type = init_val if isinstance(init_val, str) else init_val  # Get the type of the initializer
+            init_type = self.visit(initializer)  # Visit the initializer to get its type
             if init_type != var_type:
                 raise Exception(f"Type mismatch: Cannot assign {init_type} to {var_type} for variable '{var_name}' at line {line}, column {col}.")
     
@@ -287,8 +285,8 @@ class TypeChecker(ExprVisitor):
             return self.symbol_table[var_name]["type"]
         
         # Check if the term is a literal
-        elif ctx.literal(): 
-            return self.visit(ctx.literal())  
+        elif ctx.literal():
+            return self.visit(ctx.literal())
         
         # Check if the term is a classVariableAccess
         elif ctx.classVariableAccess():
