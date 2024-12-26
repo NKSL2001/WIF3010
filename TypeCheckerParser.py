@@ -45,7 +45,7 @@ def serializedATN():
         0,0,63,61,1,0,0,0,63,62,1,0,0,0,64,3,1,0,0,0,65,66,5,1,0,0,66,67,
         3,34,17,0,67,68,5,2,0,0,68,5,1,0,0,0,69,70,5,3,0,0,70,71,3,34,17,
         0,71,72,5,2,0,0,72,7,1,0,0,0,73,74,5,4,0,0,74,75,3,46,23,0,75,76,
-        3,16,8,0,76,9,1,0,0,0,77,78,3,42,21,0,78,79,3,44,22,0,79,11,1,0,
+        3,28,14,0,76,9,1,0,0,0,77,78,3,42,21,0,78,79,3,44,22,0,79,11,1,0,
         0,0,80,81,3,10,5,0,81,84,5,5,0,0,82,85,3,34,17,0,83,85,3,8,4,0,84,
         82,1,0,0,0,84,83,1,0,0,0,85,86,1,0,0,0,86,87,5,2,0,0,87,13,1,0,0,
         0,88,89,3,44,22,0,89,92,5,5,0,0,90,93,3,34,17,0,91,93,3,8,4,0,92,
@@ -478,8 +478,8 @@ class TypeCheckerParser ( Parser ):
             return self.getTypedRuleContext(TypeCheckerParser.ClassNameContext,0)
 
 
-        def parametersInit(self):
-            return self.getTypedRuleContext(TypeCheckerParser.ParametersInitContext,0)
+        def parametersCall(self):
+            return self.getTypedRuleContext(TypeCheckerParser.ParametersCallContext,0)
 
 
         def getRuleIndex(self):
@@ -513,7 +513,7 @@ class TypeCheckerParser ( Parser ):
             self.state = 74
             self.className()
             self.state = 75
-            self.parametersInit()
+            self.parametersCall()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
