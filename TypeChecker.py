@@ -1,11 +1,217 @@
 from TypeCheckerParser import TypeCheckerParser as ExprParser
 from TypeCheckerVisitor import TypeCheckerVisitor as ExprVisitor
+from collections import defaultdict
+
+
+class SymbolTable:
+    def __init__(self):
+        self.global_scope = defaultdict(lambda: defaultdict(lambda: dict))
+        self.class_scopes = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(lambda: dict))
+        )  # Track class scopes
+        self.method_scopes = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(lambda: dict))
+        )  # Track method scopes
+        self.scope_stack = []  # Track the current scope stack
+
+    def enter_scope(self, class_name=None, method_name=None):
+        """Enter a new scope (class or method)"""
+
+        # Validate if class or method exists
+        if method_name and method_name not in self.method_scopes:
+            if self.current_scope()[0]:
+                if f"{self.current_scope()[0]}.{method_name}" in self.method_scopes:
+                    class_name = self.current_scope()[0]
+                else:
+                    raise Exception(
+                        f"Method '{method_name}' not found in symbol table."
+                    )
+            else:
+                raise Exception(f"Method '{method_name}' not found in symbol table.")
+        if class_name and class_name not in self.class_scopes:
+            raise Exception(f"Class '{class_name}' not found in symbol table.")
+
+        self.scope_stack.append((class_name, method_name))
+
+    def exit_scope(self):
+        """Exit the current scope"""
+        self.scope_stack.pop()
+
+    def current_scope(self):
+        """Get the current scope"""
+        return self.scope_stack[-1] if self.scope_stack else (None, None)
+
+    # adding variable to scope
+    def add_to_scope(self, var_name, var_type, line):
+        """Add variable to the current scope"""
+        class_name, method_name = self.current_scope()
+
+        # Check if we're in a method scope
+        if method_name:
+            if self.current_scope()[0]:
+                method_name = f"{self.current_scope()[0]}.{method_name}"
+            self.add_to_method_scope(method_name, var_name, var_type, line)
+            return
+
+        # Check if we're in a class scope
+        if class_name:
+            self.add_to_class_scope(class_name, var_name, var_type, line)
+
+        self.add_to_global_scope(var_name, var_type, line)
+
+    def add_to_global_scope(self, var_name, var_type, line):
+        """Add variable to global scope"""
+        self.global_scope[var_name]["type"] = var_type
+        self.global_scope[var_name]["line"] = line
+
+    def add_to_class_scope(self, class_name, var_name, var_type, line):
+        """Add variable to a specific class scope"""
+        self.class_scopes[class_name][var_name]["type"] = var_type
+        self.class_scopes[class_name][var_name]["line"] = line
+
+    def add_to_method_scope(self, method_name, var_name, var_type, line):
+        """Add variable to a specific method scope"""
+        self.method_scopes[method_name][var_name]["type"] = var_type
+        self.method_scopes[method_name][var_name]["line"] = line
+
+    # end adding variable to scope
+
+    # add class and method to symbol table
+    def add_class(self, class_name, line, is_template):
+        """Add class to the symbol table"""
+        self.class_scopes[class_name] = defaultdict(dict)
+        self.class_scopes[class_name]["line"] = line
+        self.class_scopes[class_name]["is_template"] = is_template
+
+    def add_method(self, method_name, return_type, line, class_name=None):
+        """Add method to the symbol table"""
+        method_info = defaultdict(dict)
+        method_info["return_type"] = return_type
+        method_info["line"] = line
+
+        # if provide class name
+        if class_name and class_name in self.class_scopes:
+            method_name = f"{class_name}.{method_name}"
+            method_info["from_class"] = class_name
+        # if not provide class name, but current scope is in class
+        elif (
+            self.current_scope()[0] is not None
+            and self.current_scope()[0] in self.class_scopes
+        ):
+            method_name = f"{self.current_scope()[0]}.{method_name}"
+            method_info["from_class"] = self.current_scope()[0]
+
+        self.method_scopes[method_name] = method_info
+
+    def get_current_class(self):
+        """Get the current class name"""
+        if self.current_scope()[0] is None:
+            return None
+        return self.get_class(self.current_scope()[0])
+
+    def get_class(self, class_name):
+        """Get the class by name"""
+        return self.class_scopes[class_name]
+
+    def get_current_method(self):
+        """Get the current method name"""
+        class_name, method_name = self.current_scope()
+        if method_name is None:
+            return None
+        return self.get_method(class_name, method_name)
+
+    def get_method(self, class_name, method_name):
+        """Get the method by name"""
+        if class_name is not None:
+            return self.method_scopes[f"{class_name}.{method_name}"]
+        return self.method_scopes[method_name]
+
+    # end add class and method to symbol table
+
+    def get_var_type(self, var_name):
+        """Get the variable type from the current scope stack (method -> class -> global)"""
+        class_name, method_name = self.current_scope()
+
+        # Check method scope first
+        if method_name:
+            # visit class name first
+            if class_name and f"{class_name}.{method_name}" in self.method_scopes:
+                method_name = f"{class_name}.{method_name}"
+
+            if (
+                method_name in self.method_scopes
+                and var_name in self.method_scopes[method_name]
+            ):
+                return self.method_scopes[method_name][var_name]["type"]
+
+        # Check class scope next
+        if (
+            class_name
+            and class_name in self.class_scopes
+            and var_name in self.class_scopes[class_name]
+        ):
+            return self.class_scopes[class_name][var_name]["type"]
+
+        # Fallback to global scope
+        if var_name in self.global_scope:
+            return self.global_scope[var_name]["type"]
+
+        return None  # Variable not found
+
+    def set_var_used(self, var_name):
+        """Mark a variable as used"""
+        class_name, method_name = self.current_scope()
+
+        # Check method scope first
+        if (
+            method_name
+            and method_name in self.method_scopes
+            and var_name in self.method_scopes[method_name]
+        ):
+            self.method_scopes[method_name][var_name]["used"] = True
+            return
+
+        # Check class scope next
+        if (
+            class_name
+            and class_name in self.class_scopes
+            and var_name in self.class_scopes[class_name]
+        ):
+            self.class_scopes[class_name][var_name]["used"] = True
+            return
+
+        # Fallback to global scope
+        if var_name in self.global_scope:
+            self.global_scope[var_name]["used"] = True
+
+    def __contains__(self, var_name):
+        if self.get_var_type(var_name):
+            return True
+        return False
+
+    def items(self):
+        vars = {}
+        for var_name, var_info in self.global_scope.items():
+            if var_name.startswith("$"):
+                vars[var_name] = var_info
+        for cls in self.class_scopes.values():
+            for var_name, var_info in cls.items():
+                if var_name.startswith("$"):
+                    vars[var_name] = var_info
+        for method in self.method_scopes.values():
+            for var_name, var_info in method.items():
+                if var_name.startswith("$"):
+                    vars[var_name] = var_info
+        return vars.items()
+
+    def __str__(self):
+        return f"Global scope: {self.global_scope}\nClass scopes: {self.class_scopes}\nMethod scopes: {self.method_scopes}\nCurrent scope: {self.current_scope()}"
+
 
 class TypeChecker(ExprVisitor):
     def __init__(self):
-        self.symbol_table = {}  # Tracks variable names and their types
+        self.symbol_table = SymbolTable()  # Tracks variable names and their types
         self.used_variables = set()  # Tracks variables that are used
-        self.inheritance_map = {}  # Tracks inheritance relationships
 
     def markVariableAsUsed(self, var_name):
         """Helper function to mark variables as used."""
@@ -23,12 +229,14 @@ class TypeChecker(ExprVisitor):
             return True
 
         # Check if the declared type is a superclass of the assigned type
-        if declared_type in self.inheritance_map:
+        if declared_type in self.symbol_table.class_scopes:
             current_type = expr_type
             while current_type is not None:
                 if current_type == declared_type:
                     return True
-                current_type = self.inheritance_map.get(current_type, None)
+                current_type = self.symbol_table.get_class(current_type).get(
+                    "superclass", None
+                )
 
         # If not compatible, return False
         return False
@@ -39,6 +247,7 @@ class TypeChecker(ExprVisitor):
             self.visit(statement)
 
         # Check for unused variables after visiting the whole program
+        print(self.used_variables)
         for var, info in self.symbol_table.items():
             if var not in self.used_variables:
                 line = info["line"]
@@ -76,7 +285,7 @@ class TypeChecker(ExprVisitor):
             raise Exception(f"Variable '{var_name}' already declared.")
 
         # Add the variable to the symbol table with its declared type and the line number
-        self.symbol_table[var_name] = {"type": var_type, "line": line}
+        self.symbol_table.add_to_scope(var_name, var_type, line)
 
         # Check the initializer expression for type mismatch
         initializer = (
@@ -107,7 +316,7 @@ class TypeChecker(ExprVisitor):
         self.used_variables.add(var_name)
 
         # Get the type of the variable from the symbol table
-        declared_type = self.symbol_table[var_name]
+        declared_type = self.symbol_table.get_var_type(var_name)
 
         # Visit the assigned expression to determine its type
         expr_type = self.visit(ctx.expression())
@@ -126,36 +335,19 @@ class TypeChecker(ExprVisitor):
         return_type = ctx.methodSignature().type_().getText()
         parameters = ctx.methodSignature().parametersInit()
 
-        # # Check if method already exists (to avoid redeclaration)
-        # if method_name in self.symbol_table:
-        #     line, col = self.get_line_info(ctx)
-        #     raise Exception(f"Method '{method_name}' already declared at line {line}, column {col}.")
-
-        param_children = list(parameters.getChildren())
-        seen_params = set()
-        # Iterate over parameter pairs (type, variableName)
-        for i, child in enumerate(param_children):
-            if isinstance(child, ExprParser.TypeContext):
-                param_type = child.getText()
-                param_name = (
-                    param_children[i + 1].getText()
-                    if i + 1 < len(param_children)
-                    else None
-                )
-
-                if param_name in seen_params:
-                    raise Exception(
-                        f"Duplicate parameter: {param_type} {param_name} found in method '{method_name}'."
-                    )
-
-                seen_params.add(param_name)
-
         # Add method to the symbol table, including its return type
-        if method_name not in self.symbol_table:
-            self.symbol_table[method_name] = {
-                "type": return_type,
-                "line": ctx.start.line,
-            }
+        self.symbol_table.add_method(method_name, return_type, ctx.start.line)
+
+        # Enter method scope to add variables to correct scope
+        self.symbol_table.enter_scope(method_name=method_name)
+
+        # Iterate over parameter pairs (type, variableName)
+        for param_type, param_name in zip(
+            parameters.type_(), parameters.variableName()
+        ):
+            self.symbol_table.add_to_scope(
+                param_name.getText(), param_type.getText(), ctx.start.line
+            )
 
         # Now handle method block (statements inside method)
         self.visit(ctx.methodBlock())
@@ -171,6 +363,8 @@ class TypeChecker(ExprVisitor):
                     f"Type mismatch in return statement at line {line}, column {col}: expected {return_type} but got {return_expr_type}."
                 )
 
+        self.symbol_table.exit_scope()
+
     def visitClassDeclaration(self, ctx: ExprParser.ClassDeclarationContext):
         # Handle class name and inheritance
         class_name = ctx.className()[0].getText()
@@ -180,7 +374,7 @@ class TypeChecker(ExprVisitor):
             superclass_name = ctx.className()[1].getText()
 
         # Check if the class already exists in the symbol table
-        if class_name in self.symbol_table:
+        if class_name in self.symbol_table.class_scopes:
             line, col = self.get_line_info(ctx)
             raise Exception(
                 f"Class '{class_name}' already declared at line {line}, column {col}."
@@ -193,51 +387,27 @@ class TypeChecker(ExprVisitor):
             # Handle template-specific logic, e.g., abstract methods
             print(f"Template class '{class_name}' detected.")
 
-        if superclass_name:
-            self.inheritance_map[class_name] = superclass_name
-        else:
-            self.inheritance_map[class_name] = None  # No inheritance
-
         # Add class to symbol table, indicating whether it's a template (abstract class/interface)
-        self.symbol_table[class_name] = {
-            "type": "class" if not is_template else "template",
-            "line": ctx.start.line,
-            "is_template": is_template,
-        }
+        self.symbol_table.add_class(class_name, ctx.start.line, is_template)
+
+        self.symbol_table.enter_scope(class_name=class_name)
+
+        self.symbol_table.get_current_class()["superclass"] = superclass_name
 
         # Add class fields (variables)
         for field in ctx.variableSignature():
             # Initialize var_type to None before the try block
-            var_type = None
-            var_name = None
+            var_type = field.type_().getText()
+            var_name = field.variableName().getText()
 
-            try:
-                if hasattr(field, "type"):  # Check if we can access the type directly
-                    field_type = field.type()  # Access type and get text
-                    if field_type:
-                        var_type = field_type.getText()
-
-                if hasattr(
-                    field, "variableName"
-                ):  # Check if we can access the variableName directly
-                    var_name = (
-                        field.variableName().getText()
-                    )  # Access variable name and get text
-
-                if var_name is not None:
-                    # Handle variable existence in the symbol table
-                    if var_name in self.symbol_table:
-                        line, col = self.get_line_info(field)
-                        raise Exception(
-                            f"Variable '{var_name}' already declared at line {line}, column {col}."
-                        )
-                    self.symbol_table[var_name] = {
-                        "type": var_type,
-                        "line": ctx.start.line,
-                    }
-
-            except AttributeError as e:
-                print(f"Error accessing attributes: {e}")
+            if var_name is not None:
+                # Handle variable existence in the symbol table
+                if var_name in self.symbol_table:
+                    line, col = self.get_line_info(field)
+                    raise Exception(
+                        f"Variable '{var_name}' already declared at line {line}, column {col}."
+                    )
+                self.symbol_table.add_to_scope(var_name, var_type, field.start.line)
 
         # Add methods to symbol table
         for method in ctx.methodDeclaration():
@@ -248,16 +418,16 @@ class TypeChecker(ExprVisitor):
             for method in ctx.methodDeclaration():
                 method_name = method.methodSignature().methodName().getText()
                 # Assuming methods in templates are abstract by default
-                self.symbol_table[method_name] = {
-                    "type": "abstract method",
-                    "line": method.start.line,
-                }
+                method_info = self.symbol_table.get_method(class_name, method_name)
+                method_info["type"] = "abstract method"
                 print(
                     f"Abstract method '{method_name}' in template class '{class_name}'."
                 )
 
         # Visit the children of the class declaration (optional, depending on your needs)
-        self.visitChildren(ctx)
+        # self.visitChildren(ctx)
+
+        self.symbol_table.exit_scope()
 
     def visitExpression(self, ctx: ExprParser.ExpressionContext):
         # Delegate to additiveExpression, as it's the core of the expression
@@ -316,12 +486,13 @@ class TypeChecker(ExprVisitor):
         if ctx.variableName():
             var_name = ctx.variableName().getText()
             if var_name not in self.symbol_table:
+                print(self.symbol_table)
                 line, col = self.get_line_info(ctx)
                 raise Exception(
                     f"Variable '{var_name}' not declared at line {line}, column {col}."
                 )
             self.markVariableAsUsed(var_name)
-            return self.symbol_table[var_name]["type"]
+            return self.symbol_table.get_var_type(var_name)
 
         # Check if the term is a literal
         elif ctx.literal():
@@ -357,11 +528,9 @@ class TypeChecker(ExprVisitor):
             class_name = ctx.className().getText()
 
             # Check if the class exists
-            if class_name not in self.symbol_table:
+            if class_name not in self.symbol_table.class_scopes:
                 print(self.symbol_table)
                 raise Exception(f"Class '{class_name}' not declared.")
-
-            self.markVariableAsUsed(class_name)
 
             for variable in ctx.parametersCall().expression():
                 resolved_variable = self.visit(variable)
@@ -371,6 +540,10 @@ class TypeChecker(ExprVisitor):
             raise Exception(f"Error in class creation: {e}")
 
     def visitClassMethodAccess(self, ctx: ExprParser.ClassMethodAccessContext):
+        method_name = ctx.methodName().getText()
+
+        # try to find class
+        class_name = None
         if ctx.variableName():
             var_name = ctx.variableName().getText()
             if var_name not in self.symbol_table:
@@ -379,17 +552,24 @@ class TypeChecker(ExprVisitor):
                     f"Variable '{var_name}' not declared at line {line}, column {col}."
                 )
             self.markVariableAsUsed(var_name)
-            return self.symbol_table[var_name]["type"]
+            class_name = self.symbol_table.get_var_type(var_name)
         elif ctx.className():
             class_name = ctx.className().getText()
-            if class_name not in self.symbol_table:
-                line, col = self.get_line_info(ctx)
-                raise Exception(
-                    f"Class '{class_name}' not declared at line {line}, column {col}."
-                )
-            return self.symbol_table[class_name][ctx.methodName().getText()]["type"]
+
+        if class_name not in self.symbol_table.class_scopes:
+            line, col = self.get_line_info(ctx)
+            raise Exception(
+                f"Class '{class_name}' not declared at line {line}, column {col}."
+            )
+
+        for variable in ctx.parametersCall().expression():
+            resolved_variable = self.visit(variable)
+
+        return self.symbol_table.get_method(class_name, method_name)["return_type"]
 
     def visitClassVariableAccess(self, ctx: ExprParser.ClassVariableAccessContext):
+        access_name = ctx.accessedVariableName().getText()
+
         if ctx.variableName():
             var_name = ctx.variableName().getText()
             if var_name not in self.symbol_table:
@@ -398,11 +578,13 @@ class TypeChecker(ExprVisitor):
                     f"Variable '{var_name}' not declared at line {line}, column {col}."
                 )
             self.markVariableAsUsed(var_name)
-            return self.symbol_table[var_name]["type"]
+            class_name = self.symbol_table.get_var_type(var_name)
         elif ctx.className():
             class_name = ctx.className().getText()
-            if class_name not in self.symbol_table:
+            if class_name not in self.symbol_table.class_scopes:
                 line, col = self.get_line_info(ctx)
                 raise Exception(
                     f"Class '{class_name}' not declared at line {line}, column {col}."
                 )
+
+        return self.symbol_table.get_class(class_name)[access_name]["type"]
