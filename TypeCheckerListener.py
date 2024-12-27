@@ -161,6 +161,15 @@ class TypeCheckerListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by TypeCheckerParser#accessedVariableName.
+    def enterAccessedVariableName(self, ctx:TypeCheckerParser.AccessedVariableNameContext):
+        pass
+
+    # Exit a parse tree produced by TypeCheckerParser#accessedVariableName.
+    def exitAccessedVariableName(self, ctx:TypeCheckerParser.AccessedVariableNameContext):
+        pass
+
+
     # Enter a parse tree produced by TypeCheckerParser#expression.
     def enterExpression(self, ctx:TypeCheckerParser.ExpressionContext):
         pass

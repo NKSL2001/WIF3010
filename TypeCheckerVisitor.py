@@ -94,6 +94,11 @@ class TypeCheckerVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by TypeCheckerParser#accessedVariableName.
+    def visitAccessedVariableName(self, ctx:TypeCheckerParser.AccessedVariableNameContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by TypeCheckerParser#expression.
     def visitExpression(self, ctx:TypeCheckerParser.ExpressionContext):
         return self.visitChildren(ctx)

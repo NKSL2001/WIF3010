@@ -27,8 +27,9 @@ templateDeclaration : 'template' className  '{'
                      '}' ;
 
 parametersCall : '(' ( expression ( ',' expression )* | ) ')';
-classVariableAccess : (className | variableName) '.' variableName;
+classVariableAccess : (className | variableName) '.' accessedVariableName;
 classMethodAccess : (className | variableName) '.' methodName parametersCall;
+accessedVariableName : variableName;
 
 expression       : additiveExpression;
 /* for operation precedence */
