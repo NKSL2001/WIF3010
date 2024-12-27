@@ -1,12 +1,18 @@
 class HelloWorld {
-    fraction $real!
-    fraction $imaginary!
-
-    method none build(){
+    chunk $real!
+    chunk $imaginary!
+    method none build(chunk $a, chunk $b){
+        $real := $a!
+        $imaginary := $b!
+    }
+    method string abcd(){
     }
 }
 
 chunk $a := 1!
 chunk $b := 2!
-HelloWorld $s := HelloWorld.build($a, $b, 1, 2)!
+string $c := "Hello World!"!
+HelloWorld $s := new HelloWorld($a, $b)!
 show $s.abcd()!
+show $c!
+show $s.$real!
